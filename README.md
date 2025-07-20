@@ -1,27 +1,90 @@
-# Fashion_MNIST
-### Problem Statement
-Fashion MNIST is a dataset comprising 60,000 training images and 10,000 testing images, each depicting various fashion items in a 28x28 grayscale format. The dataset encompasses ten distinct categories of apparel. The primary aim of this assignment is to develop a fully connected neural network (FCNN) that can accurately classify these images into the correct fashion categories.
+# 🧥 Fashion MNIST Classification with Keras
 
-### Objectives:
-#### Data Visualization and Preprocessing:
-● Visualize the distribution of different fashion items in the dataset to
-understand the data better.
-● Normalize the image pixel values for effective model training.
-● Convert the categorical labels into a one-hot encoded format to suit the
-neural network’s output layer.
-#### Model Architecture and Development:
-● Design a fully connected neural network with appropriate input, hidden,
-and output layers.
-● Ensure the model is complex enough to capture the underlying patterns in
-the data without overfitting.
-#### Model Training:
-● Train the model on the preprocessed training data, using categorical
-cross-entropy as the loss function, stochastic gradient descent as the
-optimizer, and accuracy as the evaluation metric.
-● Utilize a validation split to monitor the model’s performance on unseen
-data during training.
-#### Performance Evaluation:
-● Assess the model’s performance using both training and validation
-datasets.
-● Visualize the training and validation loss and accuracy to identify any signs
-of overfitting or underfitting.
+This project demonstrates a multi-layer neural network built using Keras to classify images from the Fashion MNIST dataset. The dataset consists of grayscale 28x28 images of clothing items, and the model predicts which category an item belongs to out of 10 predefined classes.
+
+---
+
+## 📂 Project Structure
+
+- Loads and preprocesses the Fashion MNIST dataset
+- Normalizes and reshapes image data for training
+- One-hot encodes labels
+- Builds and trains a deep fully-connected neural network
+- Evaluates performance with accuracy and loss plots
+- Makes predictions on sample training data
+
+---
+
+## 📊 Dataset
+
+**Fashion MNIST** dataset is a replacement for the classic MNIST digits dataset, consisting of:
+
+- 60,000 training images  
+- 10,000 test images  
+- 10 clothing categories:
+
+  1. T-shirt/top  
+  2. Trouser  
+  3. Pullover  
+  4. Dress  
+  5. Coat  
+  6. Sandal  
+  7. Shirt  
+  8. Sneaker  
+  9. Bag  
+  10. Ankle boot  
+
+---
+
+## 🧪 Model Architecture
+
+- **Input Layer**: 784 neurons (flattened 28x28 image)  
+- **Hidden Layers**: Five Dense layers with 80 units and ReLU activation  
+- **Dropout**: 8% applied after each hidden layer to reduce overfitting  
+- **Output Layer**: 10 neurons with softmax activation (for multi-class classification)  
+
+---
+
+## 🧠 Training
+
+- **Optimizer**: Stochastic Gradient Descent (SGD)  
+- **Loss Function**: Categorical Crossentropy  
+- **Batch Size**: 25  
+- **Epochs**: 50  
+- **Validation**: Uses test set for validation metrics  
+
+---
+
+## 📈 Results
+
+Training and validation accuracy/loss are plotted to monitor performance over 50 epochs. Example visualizations include:
+
+- Training vs. Validation Loss  
+- Training vs. Validation Accuracy  
+
+These plots help assess overfitting and generalization.
+
+---
+
+## 🔍 Prediction
+
+Sample prediction on the training set:
+
+```python
+print(pred[88])             # Shows softmax probabilities
+print(np.argmax(pred[88])) # Predicted class index
+```
+
+--- 🛠️ Requirements
+Make sure you have the following libraries installed:
+```
+pip install numpy pandas matplotlib seaborn tensorflow
+
+```
+
+---
+
+## 📌 Notes
+- This model is kept intentionally simple for educational purposes.
+- You are encouraged to experiment with other architectures (e.g., CNNs), optimizers, or regularization methods to boost performance.
+
